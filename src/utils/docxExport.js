@@ -68,8 +68,8 @@ function starText(n) {
 }
 
 function fmt(v) { return v != null && v !== '' ? String(v) : '—'; }
-function fmtPct(v) { return v != null ? parseFloat(v).toFixed(1) + '%' : '—'; }
-function fmtDec(v) { return v != null ? parseFloat(v).toFixed(2) : '—'; }
+function fmtPct(v) { const n = parseFloat(v); return (v != null && v !== '' && !isNaN(n)) ? n.toFixed(1) + '%' : '—'; }
+function fmtDec(v) { const n = parseFloat(v); return (v != null && v !== '' && !isNaN(n)) ? n.toFixed(2) : '—'; }
 
 export async function generateDocx(data, ccn) {
   const c = data.claims || {};

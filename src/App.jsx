@@ -43,8 +43,9 @@ function SectionHeader({ title }) {
 }
 
 function MetricRow({ label, value, pct }) {
-  const display = value != null
-    ? pct ? parseFloat(value).toFixed(1) + '%' : parseFloat(value).toFixed(2)
+  const parsed = parseFloat(value);
+  const display = value != null && value !== '' && !isNaN(parsed)
+    ? pct ? parsed.toFixed(1) + '%' : parsed.toFixed(2)
     : null;
   return (
     <div className="flex border-b border-gray-100 last:border-0">

@@ -18,13 +18,15 @@ function fmt(val) {
 }
 
 function fmtPct(val) {
-  if (val == null) return '—';
-  return parseFloat(val).toFixed(1) + '%';
+  const n = parseFloat(val);
+  if (val == null || val === '' || isNaN(n)) return '—';
+  return n.toFixed(1) + '%';
 }
 
 function fmtDec(val) {
-  if (val == null) return '—';
-  return parseFloat(val).toFixed(2);
+  const n = parseFloat(val);
+  if (val == null || val === '' || isNaN(n)) return '—';
+  return n.toFixed(2);
 }
 
 function drawStars(doc, x, y, rating) {
